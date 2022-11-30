@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <Folder Include="Views\CtDienthoai\" />
+    <Folder Include="Views\BanHang\" />
+    <Folder Include="Views\NhanVien\" />
   </ItemGroup>
 
 </Project>

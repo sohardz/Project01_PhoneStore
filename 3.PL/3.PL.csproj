@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Guna.UI2.WinForms" Version="2.0.3.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\2.BUS\2.BUS.csproj" />
   </ItemGroup>
 

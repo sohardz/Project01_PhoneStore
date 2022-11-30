@@ -18,10 +18,19 @@ namespace _3.PL.Views.DangNhap
 
         private bool KiemTranDangNhap(string tentaikhoan, string matkhau)
         {
-            for (int i = 0; i < nhanVienService.GetAll().Count(); i++)
+            if (tentaikhoan == username && matkhau == password)
             {
-                if (tentaikhoan == username && matkhau == password || tentaikhoan == nhanVienService.GetAll()[i].Email && matkhau == nhanVienService.GetAll()[i].MatKhau)
-                    return true;
+                return true;
+            }
+            else
+            {
+                foreach (var item in nhanVienService.GetAll())
+                {
+                    if (item.Email == tentaikhoan && item.MatKhau == matkhau)
+                    {
+                        return true;
+                    }
+                }
             }
             return false;
         }

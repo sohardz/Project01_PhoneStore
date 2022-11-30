@@ -10,7 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Utilities\" />
+    <Folder Include="Views\CtDienthoai\" />
+    <Folder Include="Views\BanHang\" />
+    <Folder Include="Views\NhanVien\" />
+	<Folder Include="Utilities\" />
   </ItemGroup>
 
 </Project>

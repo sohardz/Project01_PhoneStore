@@ -19,7 +19,7 @@
   <ItemGroup>
     <Folder Include="IRepositories\" />
     <Folder Include="Repositories\" />
-	<Folder Include="Context"/>
+	<Folder Include="Context" />
   </ItemGroup>
 
 </Project>

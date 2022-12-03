@@ -1,6 +1,7 @@
 ﻿using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using _3.PL.Utilities;
+using _3.PL.Views.Stuff;
 using System.Data;
 
 namespace _3.PL.Views.BanHang
@@ -14,6 +15,8 @@ namespace _3.PL.Views.BanHang
         private HoaDonChiTietService hoaDonChitietService;
 
         private List<HoaDonChiTietView> lstHdCt;
+        public List<IMEIView> lstIMEI;
+        private string maCthd;
         private string maCtdt;
         private string maHd;
         private KhachHangView khachHang;
@@ -87,11 +90,22 @@ namespace _3.PL.Views.BanHang
             int stt = 1;
             dgrid_orderDetail.ColumnCount = 6;
             dgrid_orderDetail.Columns[0].Name = "STT";
-            dgrid_orderDetail.Columns[1].Name = "Mã HĐCT";
+            dgrid_orderDetail.Columns[1].Name = "Mã CTHĐ";
             dgrid_orderDetail.Columns[2].Name = "Mã sản phẩm";
             dgrid_orderDetail.Columns[3].Name = "Tên sản phẩm";
             dgrid_orderDetail.Columns[4].Name = "Số lượng";
             dgrid_orderDetail.Columns[5].Name = "Đơn giá";
+            dgrid_orderDetail.Columns[1].Visible = false;
+
+            DataGridViewButtonColumn columnButton = new()
+            {
+                HeaderText = "IMEI",
+                Text = "Nhập IMEI",
+                Name = "btn",
+                UseColumnTextForButtonValue = true
+            };
+            dgrid_orderDetail.Columns.Add(columnButton);
+
             dgrid_orderDetail.Rows.Clear();
 
             foreach (var x in lstHdCt)
@@ -154,6 +168,7 @@ namespace _3.PL.Views.BanHang
         #endregion
 
 
+        //sản phẩm cellclick - lấy mã sản phẩm
         private void dgrid_productDetail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex <= dgrid_productDetail.RowCount - 1)
@@ -165,11 +180,19 @@ namespace _3.PL.Views.BanHang
             else return;
         }
 
+        //hóa đơn chi tiết cellclick
         private void dgrid_orderDetail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0 && e.RowIndex <= dgrid_orderDetail.RowCount - 1)
             {
                 maCtdt = dgrid_orderDetail.Rows[e.RowIndex].Cells[2].Value.ToString();
+                maCthd = dgrid_orderDetail.Rows[e.RowIndex].Cells[1].Value.ToString();
+                if (e.ColumnIndex == 6)
+                {
+                    FrmThemIMEI frmThemIMEI = new(maCthd);
+                    frmThemIMEI.Show();
+                }
             }
             else return;
         }

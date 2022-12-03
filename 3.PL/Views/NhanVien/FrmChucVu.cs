@@ -11,13 +11,13 @@ namespace _3.PL.Views.NhanVien
         private string maWhenclick;
         private FrmNhanVien frmNhanVien;
 
-        public FrmChucVu(FrmNhanVien frmNhanVien)
+        public FrmChucVu(FrmNhanVien FrmNhanVien)
         {
             InitializeComponent();
             chucvuService = new ChucVuService();
             LoadDgrid(null);
             txt_ma.Enabled = false;
-            frmNhanVien = frmNhanVien;
+            frmNhanVien = FrmNhanVien;
         }
 
         private void LoadDgrid(string input)

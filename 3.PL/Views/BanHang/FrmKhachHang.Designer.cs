@@ -94,10 +94,10 @@
             this.dgrid_khachhang.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.dgrid_khachhang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_khachhang.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_khachhang.Location = new System.Drawing.Point(0, 242);
+            this.dgrid_khachhang.Location = new System.Drawing.Point(0, 347);
             this.dgrid_khachhang.Name = "dgrid_khachhang";
             this.dgrid_khachhang.RowTemplate.Height = 25;
-            this.dgrid_khachhang.Size = new System.Drawing.Size(1300, 483);
+            this.dgrid_khachhang.Size = new System.Drawing.Size(1350, 483);
             this.dgrid_khachhang.TabIndex = 150;
             this.dgrid_khachhang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_khachhang_CellClick);
             // 
@@ -238,12 +238,12 @@
             this.label2.TabIndex = 130;
             this.label2.Text = "Mã";
             // 
-            // FrmKhachHangService
+            // FrmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(1300, 725);
+            this.ClientSize = new System.Drawing.Size(1350, 830);
             this.Controls.Add(this.cmb_thanhpho);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
@@ -267,7 +267,7 @@
             this.Controls.Add(this.label2);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmKhachHangService";
+            this.Name = "FrmKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmKhachHangService";
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_khachhang)).EndInit();

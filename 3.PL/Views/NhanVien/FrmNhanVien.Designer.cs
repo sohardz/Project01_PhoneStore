@@ -100,10 +100,10 @@
             this.dgrid_nhanvien.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.dgrid_nhanvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_nhanvien.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_nhanvien.Location = new System.Drawing.Point(0, 308);
+            this.dgrid_nhanvien.Location = new System.Drawing.Point(0, 413);
             this.dgrid_nhanvien.Name = "dgrid_nhanvien";
             this.dgrid_nhanvien.RowTemplate.Height = 25;
-            this.dgrid_nhanvien.Size = new System.Drawing.Size(1300, 417);
+            this.dgrid_nhanvien.Size = new System.Drawing.Size(1350, 417);
             this.dgrid_nhanvien.TabIndex = 136;
             this.dgrid_nhanvien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_nhanvien_CellClick);
             // 
@@ -453,12 +453,12 @@
             this.panel2.Size = new System.Drawing.Size(245, 25);
             this.panel2.TabIndex = 149;
             // 
-            // FrmNhanVienService
+            // FrmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(1300, 725);
+            this.ClientSize = new System.Drawing.Size(1350, 830);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_tenAnh);
@@ -497,7 +497,7 @@
             this.Controls.Add(this.label2);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmNhanVienService";
+            this.Name = "FrmNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNhanVienService";
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_nhanvien)).EndInit();

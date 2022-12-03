@@ -37,8 +37,6 @@ namespace _2.BUS.Services
                     IdNv = nhanVienSerivce.GetId(obj.MaNv),
                     NgayTao = obj.NgayTao,
                     NgayThanhToan = obj.NgayThanhToan,
-                    NgayShip = obj.NgayShip,
-                    NgayNhan = obj.NgayNhan,
                     TenNguoiNhan = obj.TenKh,
                     TongTien = obj.TongTien,
                     DiaChi = obj.DiaChi,
@@ -59,8 +57,6 @@ namespace _2.BUS.Services
                 hoaDon.IdNv = nhanVienSerivce.GetId(obj.MaNv);
                 hoaDon.NgayTao = obj.NgayTao;
                 hoaDon.NgayThanhToan = obj.NgayThanhToan;
-                hoaDon.NgayShip = obj.NgayShip;
-                hoaDon.NgayNhan = obj.NgayNhan;
                 hoaDon.TenNguoiNhan = obj.TenKh;
                 hoaDon.DiaChi = obj.DiaChi;
                 hoaDon.TongTien = obj.TongTien;
@@ -96,8 +92,6 @@ namespace _2.BUS.Services
                         MaKh = b.Ma,
                         NgayTao = a.NgayTao,
                         NgayThanhToan = a.NgayThanhToan,
-                        NgayShip = a.NgayShip,
-                        NgayNhan = a.NgayNhan,
                         TenKh = b.Ten,
                         TenNv = c.Ten,
                         DiaChi = b.DiaChi,

@@ -23,10 +23,6 @@ namespace _1.DAL.DomainModels
         public DateTime? NgayTao { get; set; }
         [Column(TypeName = "date")]
         public DateTime? NgayThanhToan { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime? NgayShip { get; set; }
-        [Column(TypeName = "date")]
-        public DateTime? NgayNhan { get; set; }
         [StringLength(50)]
         public string TenNguoiNhan { get; set; }
         [StringLength(100)]

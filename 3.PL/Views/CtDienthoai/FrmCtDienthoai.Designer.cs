@@ -310,10 +310,10 @@
             this.dgrid_chitietsp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.dgrid_chitietsp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_chitietsp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_chitietsp.Location = new System.Drawing.Point(0, 337);
+            this.dgrid_chitietsp.Location = new System.Drawing.Point(0, 442);
             this.dgrid_chitietsp.Name = "dgrid_chitietsp";
             this.dgrid_chitietsp.RowTemplate.Height = 25;
-            this.dgrid_chitietsp.Size = new System.Drawing.Size(1300, 388);
+            this.dgrid_chitietsp.Size = new System.Drawing.Size(1350, 388);
             this.dgrid_chitietsp.TabIndex = 123;
             this.dgrid_chitietsp.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_chitietsp_CellClick);
             // 
@@ -491,12 +491,12 @@
             this.btn_manhinhService.UseVisualStyleBackColor = true;
             this.btn_manhinhService.Click += new System.EventHandler(this.btn_manhinhService_Click);
             // 
-            // FrmCtDienThoaiService
+            // FrmCtDienthoai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(1300, 725);
+            this.ClientSize = new System.Drawing.Size(1350, 830);
             this.Controls.Add(this.btn_manhinhService);
             this.Controls.Add(this.btn_pinService);
             this.Controls.Add(this.btn_ram);
@@ -543,7 +543,7 @@
             this.Controls.Add(this.dgrid_chitietsp);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmCtDienThoaiService";
+            this.Name = "FrmCtDienthoai";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmChiTietSpService";
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_chitietsp)).EndInit();

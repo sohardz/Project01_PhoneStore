@@ -43,12 +43,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.picBox_ctdt = new System.Windows.Forms.PictureBox();
             this.txt_searchProduct = new System.Windows.Forms.TextBox();
             this.dgrid_productDetail = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgrid_undoneOrder = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtn_huy = new System.Windows.Forms.RadioButton();
+            this.rbtn_dacoc = new System.Windows.Forms.RadioButton();
+            this.rbtn_dahoanthanh = new System.Windows.Forms.RadioButton();
             this.rbtn_chuathanhtoan = new System.Windows.Forms.RadioButton();
             this.cmb_staff = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,14 +69,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgrid_orderDetail = new System.Windows.Forms.DataGridView();
-            this.rbtn_dahoanthanh = new System.Windows.Forms.RadioButton();
-            this.rbtn_chogiaohang = new System.Windows.Forms.RadioButton();
-            this.rbtn_danggiao = new System.Windows.Forms.RadioButton();
-            this.rbtn_dacoc = new System.Windows.Forms.RadioButton();
-            this.rbtn_huy = new System.Windows.Forms.RadioButton();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_ctdt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_productDetail)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_undoneOrder)).BeginInit();
@@ -98,7 +94,7 @@
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.groupBox4.Location = new System.Drawing.Point(830, 379);
+            this.groupBox4.Location = new System.Drawing.Point(888, 493);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(450, 325);
             this.groupBox4.TabIndex = 7;
@@ -219,24 +215,15 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.picBox_ctdt);
             this.groupBox3.Controls.Add(this.txt_searchProduct);
             this.groupBox3.Controls.Add(this.dgrid_productDetail);
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.groupBox3.Location = new System.Drawing.Point(20, 379);
+            this.groupBox3.Location = new System.Drawing.Point(12, 355);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(800, 325);
+            this.groupBox3.Size = new System.Drawing.Size(862, 457);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách sản phẩm";
-            // 
-            // picBox_ctdt
-            // 
-            this.picBox_ctdt.Location = new System.Drawing.Point(624, 64);
-            this.picBox_ctdt.Name = "picBox_ctdt";
-            this.picBox_ctdt.Size = new System.Drawing.Size(150, 150);
-            this.picBox_ctdt.TabIndex = 4;
-            this.picBox_ctdt.TabStop = false;
             // 
             // txt_searchProduct
             // 
@@ -250,10 +237,10 @@
             // 
             this.dgrid_productDetail.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.dgrid_productDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_productDetail.Location = new System.Drawing.Point(6, 64);
+            this.dgrid_productDetail.Location = new System.Drawing.Point(6, 51);
             this.dgrid_productDetail.Name = "dgrid_productDetail";
             this.dgrid_productDetail.RowTemplate.Height = 25;
-            this.dgrid_productDetail.Size = new System.Drawing.Size(592, 255);
+            this.dgrid_productDetail.Size = new System.Drawing.Size(850, 400);
             this.dgrid_productDetail.TabIndex = 2;
             this.dgrid_productDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_productDetail_CellClick);
             // 
@@ -261,7 +248,7 @@
             // 
             this.groupBox2.Controls.Add(this.dgrid_undoneOrder);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.groupBox2.Location = new System.Drawing.Point(905, 20);
+            this.groupBox2.Location = new System.Drawing.Point(963, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(375, 331);
             this.groupBox2.TabIndex = 9;
@@ -284,8 +271,6 @@
             // 
             this.groupBox1.Controls.Add(this.rbtn_huy);
             this.groupBox1.Controls.Add(this.rbtn_dacoc);
-            this.groupBox1.Controls.Add(this.rbtn_danggiao);
-            this.groupBox1.Controls.Add(this.rbtn_chogiaohang);
             this.groupBox1.Controls.Add(this.rbtn_dahoanthanh);
             this.groupBox1.Controls.Add(this.rbtn_chuathanhtoan);
             this.groupBox1.Controls.Add(this.cmb_staff);
@@ -306,12 +291,45 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dgrid_orderDetail);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.groupBox1.Location = new System.Drawing.Point(20, 20);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(879, 331);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Giỏ hàng";
+            // 
+            // rbtn_huy
+            // 
+            this.rbtn_huy.AutoSize = true;
+            this.rbtn_huy.Location = new System.Drawing.Point(716, 213);
+            this.rbtn_huy.Name = "rbtn_huy";
+            this.rbtn_huy.Size = new System.Drawing.Size(47, 19);
+            this.rbtn_huy.TabIndex = 24;
+            this.rbtn_huy.TabStop = true;
+            this.rbtn_huy.Text = "Hủy";
+            this.rbtn_huy.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_dacoc
+            // 
+            this.rbtn_dacoc.AutoSize = true;
+            this.rbtn_dacoc.Location = new System.Drawing.Point(585, 213);
+            this.rbtn_dacoc.Name = "rbtn_dacoc";
+            this.rbtn_dacoc.Size = new System.Drawing.Size(61, 19);
+            this.rbtn_dacoc.TabIndex = 23;
+            this.rbtn_dacoc.TabStop = true;
+            this.rbtn_dacoc.Text = "Đã cọc";
+            this.rbtn_dacoc.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_dahoanthanh
+            // 
+            this.rbtn_dahoanthanh.AutoSize = true;
+            this.rbtn_dahoanthanh.Location = new System.Drawing.Point(716, 176);
+            this.rbtn_dahoanthanh.Name = "rbtn_dahoanthanh";
+            this.rbtn_dahoanthanh.Size = new System.Drawing.Size(100, 19);
+            this.rbtn_dahoanthanh.TabIndex = 20;
+            this.rbtn_dahoanthanh.TabStop = true;
+            this.rbtn_dahoanthanh.Text = "Đã thanh toán";
+            this.rbtn_dahoanthanh.UseVisualStyleBackColor = true;
             // 
             // rbtn_chuathanhtoan
             // 
@@ -481,81 +499,25 @@
             this.dgrid_orderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_orderDetail_CellClick);
             this.dgrid_orderDetail.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_orderDetail_CellValueChanged);
             // 
-            // rbtn_dahoanthanh
-            // 
-            this.rbtn_dahoanthanh.AutoSize = true;
-            this.rbtn_dahoanthanh.Location = new System.Drawing.Point(716, 176);
-            this.rbtn_dahoanthanh.Name = "rbtn_dahoanthanh";
-            this.rbtn_dahoanthanh.Size = new System.Drawing.Size(100, 19);
-            this.rbtn_dahoanthanh.TabIndex = 20;
-            this.rbtn_dahoanthanh.TabStop = true;
-            this.rbtn_dahoanthanh.Text = "Đã thanh toán";
-            this.rbtn_dahoanthanh.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_chogiaohang
-            // 
-            this.rbtn_chogiaohang.AutoSize = true;
-            this.rbtn_chogiaohang.Location = new System.Drawing.Point(585, 213);
-            this.rbtn_chogiaohang.Name = "rbtn_chogiaohang";
-            this.rbtn_chogiaohang.Size = new System.Drawing.Size(103, 19);
-            this.rbtn_chogiaohang.TabIndex = 21;
-            this.rbtn_chogiaohang.TabStop = true;
-            this.rbtn_chogiaohang.Text = "Chờ giao hàng";
-            this.rbtn_chogiaohang.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_danggiao
-            // 
-            this.rbtn_danggiao.AutoSize = true;
-            this.rbtn_danggiao.Location = new System.Drawing.Point(716, 213);
-            this.rbtn_danggiao.Name = "rbtn_danggiao";
-            this.rbtn_danggiao.Size = new System.Drawing.Size(79, 19);
-            this.rbtn_danggiao.TabIndex = 22;
-            this.rbtn_danggiao.TabStop = true;
-            this.rbtn_danggiao.Text = "Đang giao";
-            this.rbtn_danggiao.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_dacoc
-            // 
-            this.rbtn_dacoc.AutoSize = true;
-            this.rbtn_dacoc.Location = new System.Drawing.Point(585, 250);
-            this.rbtn_dacoc.Name = "rbtn_dacoc";
-            this.rbtn_dacoc.Size = new System.Drawing.Size(61, 19);
-            this.rbtn_dacoc.TabIndex = 23;
-            this.rbtn_dacoc.TabStop = true;
-            this.rbtn_dacoc.Text = "Đã cọc";
-            this.rbtn_dacoc.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_huy
-            // 
-            this.rbtn_huy.AutoSize = true;
-            this.rbtn_huy.Location = new System.Drawing.Point(716, 250);
-            this.rbtn_huy.Name = "rbtn_huy";
-            this.rbtn_huy.Size = new System.Drawing.Size(47, 19);
-            this.rbtn_huy.TabIndex = 24;
-            this.rbtn_huy.TabStop = true;
-            this.rbtn_huy.Text = "Hủy";
-            this.rbtn_huy.UseVisualStyleBackColor = true;
-            // 
-            // FrmBanHangService
+            // FrmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(1300, 725);
+            this.ClientSize = new System.Drawing.Size(1350, 830);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmBanHangService";
+            this.Name = "FrmBanHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBanHangService";
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_ctdt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_productDetail)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_undoneOrder)).EndInit();
@@ -583,7 +545,6 @@
         private Label label8;
         private Label label7;
         private GroupBox groupBox3;
-        private PictureBox picBox_ctdt;
         private TextBox txt_searchProduct;
         private DataGridView dgrid_productDetail;
         private GroupBox groupBox2;
@@ -608,8 +569,6 @@
         private DataGridView dgrid_orderDetail;
         private RadioButton rbtn_chuathanhtoan;
         private RadioButton rbtn_dacoc;
-        private RadioButton rbtn_danggiao;
-        private RadioButton rbtn_chogiaohang;
         private RadioButton rbtn_dahoanthanh;
         private RadioButton rbtn_huy;
     }

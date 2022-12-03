@@ -8,6 +8,7 @@ namespace _2.BUS.IServices
         string Add(HoaDonChiTietView obj);
         string Update(HoaDonChiTietView obj);
         string Delete(HoaDonChiTietView obj);
+        List<HoaDonChiTietView> GetAll();
         List<HoaDonChiTietView> GetAll(Guid id);
         List<HoaDonChiTietView> ShowHoadonChitiet(Guid id);
         HoaDonChiTiet GetModel(Guid id);

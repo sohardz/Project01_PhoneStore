@@ -33,8 +33,6 @@ namespace _1.DAL.Repositories
                 temp.IdKh = obj.IdKh;
                 temp.NgayTao = obj.NgayTao;
                 temp.NgayThanhToan = obj.NgayThanhToan;
-                temp.NgayShip = obj.NgayShip;
-                temp.NgayNhan = obj.NgayNhan;
                 temp.TenNguoiNhan = obj.TenNguoiNhan;
                 temp.DiaChi = obj.DiaChi;
                 temp.Sdt = obj.Sdt;

@@ -224,7 +224,7 @@
             this.lbl_timenow.AutoSize = true;
             this.lbl_timenow.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_timenow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.lbl_timenow.Location = new System.Drawing.Point(1357, 23);
+            this.lbl_timenow.Location = new System.Drawing.Point(1357, 9);
             this.lbl_timenow.Name = "lbl_timenow";
             this.lbl_timenow.Size = new System.Drawing.Size(59, 25);
             this.lbl_timenow.TabIndex = 10;
@@ -235,7 +235,7 @@
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(178)))));
-            this.lbl_title.Location = new System.Drawing.Point(246, 23);
+            this.lbl_title.Location = new System.Drawing.Point(226, 9);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(136, 37);
             this.lbl_title.TabIndex = 9;
@@ -243,9 +243,9 @@
             // 
             // pnl_formLoader
             // 
-            this.pnl_formLoader.Location = new System.Drawing.Point(260, 110);
+            this.pnl_formLoader.Location = new System.Drawing.Point(238, 58);
             this.pnl_formLoader.Name = "pnl_formLoader";
-            this.pnl_formLoader.Size = new System.Drawing.Size(1300, 750);
+            this.pnl_formLoader.Size = new System.Drawing.Size(1350, 830);
             this.pnl_formLoader.TabIndex = 8;
             // 
             // timeNow

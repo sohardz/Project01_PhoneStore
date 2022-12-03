@@ -69,6 +69,28 @@ namespace _2.BUS.Services
             return "xóa thất bại";
         }
 
+        public List<HoaDonChiTietView> GetAll()
+        {
+            var lst = new List<HoaDonChiTietView>();
+            lst =
+                (
+                    from a in hoaDonChiTietRepository.GetAll()
+                    join b in hoaDonRepository.GetAll() on a.IdHoaDon equals b.Id
+                    join c in ctDienThoaiRepository.GetAll() on a.IdCtDienThoai equals c.Id
+                    select new HoaDonChiTietView()
+                    {
+                        Ma = a.Ma,
+                        MaHd = b.Ma,
+                        MaCtDienThoai = c.Ma,
+                        SoLuong = a.SoLuong,
+                        DonGia = a.DonGia,
+                        ThanhTien = a.SoLuong * a.DonGia,
+                        TrangThai = a.TrangThai,
+                    }
+                ).ToList();
+            return lst;
+        }
+
         public List<HoaDonChiTietView> GetAll(Guid id)
         {
             var lst = new List<HoaDonChiTietView>();

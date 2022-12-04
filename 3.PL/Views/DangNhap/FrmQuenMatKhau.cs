@@ -32,10 +32,11 @@ namespace _3.PL.Views.DangNhap
  
             MailMessage message = new MailMessage(from, email, "", body);
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-
-            client.Credentials = new NetworkCredential("hieulmph27350@fpt.edu.vn", "olanibba123");
             client.EnableSsl = true;
+            client.Credentials = new NetworkCredential("hieulmph27350@fpt.edu.vn", "olanibba123");
             client.Send(message);
+
+            //Để dùng được chức năng gửi mật khẩu cần bật less sercurity trong manage your account và chỉ có email của tổ chức mới bật được ví dụ như email trường email cá nhân chỉ dùng làm đối tượng được gửi đến
 
         }
 
@@ -44,13 +45,13 @@ namespace _3.PL.Views.DangNhap
             var nhanVien = nhanVienService.GetAll().FirstOrDefault(c => c.Email == txtEmail.Text).Email;
             var matkhau = nhanVienService.GetAll().FirstOrDefault(c => c.Email == txtEmail.Text).MatKhau;
 
-            DialogResult dialogResult = MessageBox.Show("Confirm ko con bitch?", "Xác nhận", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Confirm", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 if (nhanVien == txtEmail.Text)
                 {
                     email = txtEmail.Text;
-                    body = "Mật khẩu của bạn là" + matkhau;
+                    body = "Mật khẩu của bạn là " + matkhau;
                     SendMail(txtEmail.Text);
                     MessageBox.Show("Gửi mail thành công ", "Thông ball");
                 }

@@ -1,4 +1,5 @@
 using _3.PL.Views.DangNhap;
+using _3.PL.Views.NhanVien;
 using _3.PL.Views.Stuff;
 
 namespace _3.PL

@@ -80,7 +80,7 @@ namespace _2.BUS.Services
             return imeiRepository.GetAll().FirstOrDefault(c => c.Id == id);
         }
 
-        public Guid GetId(int input)
+        public Guid GetId(string input)
         {
             return imeiRepository.GetAll().FirstOrDefault(c => c.MaIMEI == input).Id;
         }

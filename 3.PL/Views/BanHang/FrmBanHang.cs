@@ -29,11 +29,28 @@ namespace _3.PL.Views.BanHang
             khachHangService = new KhachHangService();
             hoaDonService = new HoaDonService();
             hoaDonChitietService = new HoaDonChiTietService();
+            lstIMEI = new List<IMEIView>();
             lstHdCt = new List<HoaDonChiTietView>();
             LoadCmb();
             LoadSanPham();
             LoadHoaDonCho();
             LoadGioHang();
+        }
+
+        //một cái hàm để cho delegate chọc vào -> lấy imei nhập ở form khác
+        public void TakeIMEI(List<IMEIView> lst) => lstIMEI = lst;
+
+        private void CheckDataTaken()
+        {
+            foreach (var x in lstIMEI)
+            {
+                MessageBox.Show($"Đây là hóa đơn chi tiết {x.MaHoaDonChiTiet} có IMEI {x.MaIMEI}");
+            }
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            CheckDataTaken();
         }
 
         #region Load control
@@ -115,6 +132,7 @@ namespace _3.PL.Views.BanHang
         }
         #endregion
 
+        //tổng tiền
         private void TotalCart()
         {
             if (lstHdCt != null)
@@ -188,10 +206,16 @@ namespace _3.PL.Views.BanHang
             {
                 maCtdt = dgrid_orderDetail.Rows[e.RowIndex].Cells[2].Value.ToString();
                 maCthd = dgrid_orderDetail.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int soluong = Convert.ToInt32(dgrid_orderDetail.Rows[e.RowIndex].Cells[4].Value.ToString());
                 if (e.ColumnIndex == 6)
                 {
-                    FrmThemIMEI frmThemIMEI = new(maCthd);
-                    frmThemIMEI.Show();
+                    using (FrmThemIMEI frm = new(maCthd, soluong))
+                    {
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            lstIMEI = frm.listIMEI;
+                        }
+                    };
                 }
             }
             else return;
@@ -490,6 +514,6 @@ namespace _3.PL.Views.BanHang
                 MessageBox.Show("Vui lòng chọn hóa đơn chưa thanh toán");
             }
         }
-        #endregion
+        #endregion        
     }
 }

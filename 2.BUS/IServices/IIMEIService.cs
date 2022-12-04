@@ -10,6 +10,6 @@ namespace _2.BUS.IServices
         string Delete(IMEIView obj);
         List<IMEIView> GetAll();
         IMEI GetModel(Guid id);
-        Guid GetId(int input);
+        Guid GetId(string input);
     }
 }

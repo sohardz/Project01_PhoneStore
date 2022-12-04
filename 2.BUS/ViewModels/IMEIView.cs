@@ -3,7 +3,7 @@
     public class IMEIView
     {
         public string MaHoaDonChiTiet { get; set; }
-        public int MaIMEI { get; set; }
+        public string MaIMEI { get; set; }
         public int TrangThai { get; set; }
     }
 }

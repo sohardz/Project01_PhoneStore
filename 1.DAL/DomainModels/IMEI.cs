@@ -11,8 +11,7 @@ namespace _1.DAL.DomainModels
         [Key]
         public Guid Id { get; set; }
         public Guid? IdHoaDonChiTiet { get; set; }
-        [Required]
-        public int MaIMEI { get; set; }
+        public string MaIMEI { get; set; }
         public int TrangThai { get; set; }
 
         [ForeignKey(nameof(IdHoaDonChiTiet))]

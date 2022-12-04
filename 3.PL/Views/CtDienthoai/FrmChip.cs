@@ -26,7 +26,7 @@ namespace _3.PL.Views.CtDienthoai
             dgrid_chip.ColumnCount = 4;
             dgrid_chip.Columns[0].Name = "Stt";
             dgrid_chip.Columns[1].Name = "Mã";
-            dgrid_chip.Columns[2].Name = "Dung Lượng";
+            dgrid_chip.Columns[2].Name = "Tên";
             dgrid_chip.Columns[3].Name = "Trạng Thái";
             dgrid_chip.Rows.Clear();
 

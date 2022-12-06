@@ -186,7 +186,6 @@ namespace _1.DAL.Context
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
                 entity.Property(e => e.Ma).IsUnicode(false);
                 entity.HasIndex(e => e.Ma).IsUnique();
-                entity.Property(e => e.Sdt).IsUnicode(false);
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
 
                 entity.HasOne(e => e.IdKhNavigation)
@@ -223,10 +222,10 @@ namespace _1.DAL.Context
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
                 entity.HasIndex(e => e.MaIMEI).IsUnique();
 
-                entity.HasOne(e => e.IdHoaDonChiTietNavigation)
+                entity.HasOne(e => e.IdCtDienThoaiNavigation)
                     .WithMany(e => e.IMEIs)
-                    .HasForeignKey(e => e.IdHoaDonChiTiet)
-                    .HasConstraintName("FK_IMEI_HoaDonChiTiet");
+                    .HasForeignKey(e => e.IdCtDienThoai)
+                    .HasConstraintName("FK_IMEI_CtDienThoai");
             });
 
             OnModelCreatingPartial(modelBuilder);

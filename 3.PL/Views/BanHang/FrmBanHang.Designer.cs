@@ -69,7 +69,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgrid_orderDetail = new System.Windows.Forms.DataGridView();
-            this.btn = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_productDetail)).BeginInit();
@@ -500,24 +499,12 @@
             this.dgrid_orderDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_orderDetail_CellClick);
             this.dgrid_orderDetail.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_orderDetail_CellValueChanged);
             // 
-            // btn
-            // 
-            this.btn.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn.Location = new System.Drawing.Point(897, 369);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(219, 37);
-            this.btn.TabIndex = 21;
-            this.btn.Text = "tôi thật đần xD";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
-            // 
             // FrmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(1350, 830);
-            this.Controls.Add(this.btn);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -584,6 +571,5 @@
         private RadioButton rbtn_dacoc;
         private RadioButton rbtn_dahoanthanh;
         private RadioButton rbtn_huy;
-        private Button btn;
     }
 }

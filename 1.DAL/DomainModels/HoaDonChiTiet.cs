@@ -9,8 +9,7 @@ namespace _1.DAL.DomainModels
     public partial class HoaDonChiTiet
     {
         public HoaDonChiTiet()
-        {
-            IMEIs = new HashSet<IMEI>();
+        {            
         }
 
         [Key]
@@ -30,8 +29,5 @@ namespace _1.DAL.DomainModels
         [ForeignKey(nameof(IdHoaDon))]
         [InverseProperty(nameof(HoaDon.HoaDonChiTiets))]
         public virtual HoaDon IdHoaDonNavigation { get; set; }
-
-        [InverseProperty(nameof(IMEI.IdHoaDonChiTietNavigation))]
-        public virtual ICollection<IMEI> IMEIs { get; set; }
     }
 }

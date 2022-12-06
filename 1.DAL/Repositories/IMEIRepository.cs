@@ -29,7 +29,7 @@ namespace _1.DAL.Repositories
             if (obj != null)
             {
                 var temp = dbContext.IMEIs.FirstOrDefault(c => c.Id == obj.Id);
-                temp.MaIMEI = obj.MaIMEI;
+                temp.IdHoaDonChiTiet = obj.IdHoaDonChiTiet;
                 temp.TrangThai = obj.TrangThai;
                 dbContext.Update(temp);
                 dbContext.SaveChanges();

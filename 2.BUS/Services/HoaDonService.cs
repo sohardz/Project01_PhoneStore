@@ -37,10 +37,7 @@ namespace _2.BUS.Services
                     IdNv = nhanVienSerivce.GetId(obj.MaNv),
                     NgayTao = obj.NgayTao,
                     NgayThanhToan = obj.NgayThanhToan,
-                    TenNguoiNhan = obj.TenKh,
                     TongTien = obj.TongTien,
-                    DiaChi = obj.DiaChi,
-                    Sdt = obj.Sdt,
                     TrangThai = obj.TrangThai,
                 };
                 return hoaDonRepository.Add(hoaDon) ? "thêm thành công" : "thêm thất bại";
@@ -57,10 +54,7 @@ namespace _2.BUS.Services
                 hoaDon.IdNv = nhanVienSerivce.GetId(obj.MaNv);
                 hoaDon.NgayTao = obj.NgayTao;
                 hoaDon.NgayThanhToan = obj.NgayThanhToan;
-                hoaDon.TenNguoiNhan = obj.TenKh;
-                hoaDon.DiaChi = obj.DiaChi;
                 hoaDon.TongTien = obj.TongTien;
-                hoaDon.Sdt = obj.Sdt;
                 hoaDon.TrangThai = obj.TrangThai;
                 return hoaDonRepository.Update(hoaDon) ? "sửa thành công" : "sửa thất bại";
             }
@@ -94,8 +88,6 @@ namespace _2.BUS.Services
                         NgayThanhToan = a.NgayThanhToan,
                         TenKh = b.Ten,
                         TenNv = c.Ten,
-                        DiaChi = b.DiaChi,
-                        Sdt = b.Sdt,
                         TongTien = a.TongTien,
                         TrangThai = a.TrangThai,
                     }

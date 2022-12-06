@@ -23,12 +23,6 @@ namespace _1.DAL.DomainModels
         public DateTime? NgayTao { get; set; }
         [Column(TypeName = "date")]
         public DateTime? NgayThanhToan { get; set; }
-        [StringLength(50)]
-        public string TenNguoiNhan { get; set; }
-        [StringLength(100)]
-        public string DiaChi { get; set; }
-        [StringLength(20)]
-        public string Sdt { get; set; }
         public decimal TongTien { get; set; }
         public string GhiChu { get; set; }
         public int TrangThai { get; set; }

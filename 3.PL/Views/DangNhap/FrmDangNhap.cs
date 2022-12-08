@@ -7,15 +7,16 @@ namespace _3.PL.Views.DangNhap
     public partial class FrmDangNhap : Form
     {
         INhanVienService nhanVienService;
-        readonly string username = "admin";
-        readonly string password = "admin";
+        string username = "admin";
+        string password = "admin";
 
         public FrmDangNhap()
         {
             InitializeComponent();
             nhanVienService = new NhanVienService();
         }
-                
+
+        
         private bool KiemTranDangNhap(string tentaikhoan, string matkhau)
         {
             if (tentaikhoan == username && matkhau == password)
@@ -57,11 +58,16 @@ namespace _3.PL.Views.DangNhap
             Application.Exit();
         }
 
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmQuenMatKhau frmQuenMatKhau = new FrmQuenMatKhau();
             frmQuenMatKhau.Show();
-            Hide();
+            this.Hide();
         }
 
         private void cb_SaveAccount_CheckedChanged(object sender, EventArgs e)

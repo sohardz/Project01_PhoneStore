@@ -1,5 +1,4 @@
-﻿using _2.BUS.IServices;
-using _2.BUS.Services;
+﻿using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using _3.PL.Utilities;
 using _3.PL.Views.Stuff;
@@ -14,7 +13,6 @@ namespace _3.PL.Views.BanHang
         private KhachHangService khachHangService;
         private HoaDonService hoaDonService;
         private HoaDonChiTietService hoaDonChitietService;
-        private IIMEIService imeiService;
 
         private List<HoaDonChiTietView> lstHdCt;
         public List<IMEIView> lstIMEI;
@@ -31,13 +29,28 @@ namespace _3.PL.Views.BanHang
             khachHangService = new KhachHangService();
             hoaDonService = new HoaDonService();
             hoaDonChitietService = new HoaDonChiTietService();
-            imeiService = new IMEIService();
             lstIMEI = new List<IMEIView>();
             lstHdCt = new List<HoaDonChiTietView>();
             LoadCmb();
             LoadSanPham();
             LoadHoaDonCho();
             LoadGioHang();
+        }
+
+        //một cái hàm để cho delegate chọc vào -> lấy imei nhập ở form khác
+        public void TakeIMEI(List<IMEIView> lst) => lstIMEI = lst;
+
+        private void CheckDataTaken()
+        {
+            foreach (var x in lstIMEI)
+            {
+                MessageBox.Show($"Đây là hóa đơn chi tiết {x.MaHoaDonChiTiet} có IMEI {x.MaIMEI}");
+            }
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            CheckDataTaken();
         }
 
         #region Load control
@@ -100,6 +113,16 @@ namespace _3.PL.Views.BanHang
             dgrid_orderDetail.Columns[4].Name = "Số lượng";
             dgrid_orderDetail.Columns[5].Name = "Đơn giá";
             dgrid_orderDetail.Columns[1].Visible = false;
+
+            DataGridViewButtonColumn columnButton = new()
+            {
+                HeaderText = "IMEI",
+                Text = "Nhập IMEI",
+                Name = "btn",
+                UseColumnTextForButtonValue = true
+            };
+            dgrid_orderDetail.Columns.Add(columnButton);
+
             dgrid_orderDetail.Rows.Clear();
 
             foreach (var x in lstHdCt)
@@ -182,6 +205,18 @@ namespace _3.PL.Views.BanHang
             if (e.RowIndex >= 0 && e.RowIndex <= dgrid_orderDetail.RowCount - 1)
             {
                 maCtdt = dgrid_orderDetail.Rows[e.RowIndex].Cells[2].Value.ToString();
+                maCthd = dgrid_orderDetail.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int soluong = Convert.ToInt32(dgrid_orderDetail.Rows[e.RowIndex].Cells[4].Value.ToString());
+                if (e.ColumnIndex == 6)
+                {
+                    using (FrmThemIMEI frm = new(maCthd, soluong))
+                    {
+                        if (frm.ShowDialog() == DialogResult.OK)
+                        {
+                            lstIMEI = frm.listIMEI;
+                        }
+                    };
+                }
             }
             else return;
         }
@@ -389,6 +424,8 @@ namespace _3.PL.Views.BanHang
                             MaKh = khachHang.Ma,
                             TrangThai = 0,
                             TenKh = khachHang.Ten,
+                            Sdt = khachHang.Sdt,
+                            DiaChi = khachHang.DiaChi,
                             TongTien = Convert.ToDecimal(lbl_totalcart.Text),
                         };
                         hoaDonService.Add(hoadon);
@@ -399,16 +436,6 @@ namespace _3.PL.Views.BanHang
                             var sp = ctDienthoaiService.GetAll().FirstOrDefault(c => c.Ma == item.MaCtDienThoai);
                             sp.SoLuongTon -= item.SoLuong;
                             ctDienthoaiService.Update(sp);
-                            for (int i = 0; i < item.SoLuong; i++)
-                            {
-                                IMEIView imei = new()
-                                {
-                                    MaCtDienThoai = item.MaCtDienThoai,
-                                    MaHoaDonChiTiet = item.Ma,
-                                    TrangThai = 1,
-                                };
-                                imeiService.Update(imei);
-                            }
                         }
 
                         cmb_customerPhoneNumber.Text = "";
@@ -446,13 +473,6 @@ namespace _3.PL.Views.BanHang
                         var hdct = hoaDonChitietService.GetAll(hoaDonService.GetId(hoadon.Ma));
                         foreach (var item in hdct)
                         {
-                            IMEIView imei = new()
-                            {
-                                MaCtDienThoai = item.MaCtDienThoai,
-                                MaHoaDonChiTiet = item.Ma,
-                                TrangThai = 0,
-                            };
-                            imeiService.Update(imei);
                             item.MaHd = hoadon.Ma;
                             hoaDonChitietService.Delete(item);
                         }
@@ -463,18 +483,9 @@ namespace _3.PL.Views.BanHang
                             var sp = ctDienthoaiService.GetAll().FirstOrDefault(c => c.Ma == item.MaCtDienThoai);
                             sp.SoLuongTon -= item.SoLuong;
                             ctDienthoaiService.Update(sp);
-                            for (int i = 0; i < item.SoLuong; i++)
-                            {
-                                IMEIView imei = new()
-                                {
-                                    MaCtDienThoai = item.MaCtDienThoai,
-                                    MaHoaDonChiTiet = item.Ma,
-                                    TrangThai = 1,
-                                };
-                                imeiService.Update(imei);
-                            }
                         }
                         string maNhanvien = nhanVienService.GetAll().FirstOrDefault(c => c.Sdt == cmb_staff.Text).Ma;
+                        hoadon.NgayTao = DateTime.Now;
                         hoadon.MaNv = maNhanvien;
                         hoadon.MaKh = khachHang.Ma;
                         hoadon.TongTien = Convert.ToDecimal(lbl_totalcart.Text);

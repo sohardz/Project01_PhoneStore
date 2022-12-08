@@ -11,7 +11,6 @@ namespace _1.DAL.DomainModels
         public CtDienThoai()
         {
             HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
-            IMEIs = new HashSet<IMEI>();
         }
 
         [Key]
@@ -58,10 +57,7 @@ namespace _1.DAL.DomainModels
         [ForeignKey(nameof(IdDt))]
         [InverseProperty(nameof(DienThoai.CtDienThoais))]
         public virtual DienThoai IdDtNavigation { get; set; }
-
         [InverseProperty(nameof(HoaDonChiTiet.IdCtDienThoaiNavigation))]
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
-        [InverseProperty(nameof(IMEI.IdCtDienThoaiNavigation))]
-        public virtual ICollection<IMEI> IMEIs { get; set; }
     }
 }

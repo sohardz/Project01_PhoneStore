@@ -231,6 +231,10 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("(newid())");
 
+                    b.Property<string>("DiaChi")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("GhiChu")
                         .HasColumnType("nvarchar(max)");
 
@@ -250,6 +254,15 @@ namespace _1.DAL.Migrations
 
                     b.Property<DateTime?>("NgayThanhToan")
                         .HasColumnType("date");
+
+                    b.Property<string>("Sdt")
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("TenNguoiNhan")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("TongTien")
                         .HasColumnType("decimal(18,2)");
@@ -321,9 +334,6 @@ namespace _1.DAL.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("(newid())");
 
-                    b.Property<Guid?>("IdCtDienThoai")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("IdHoaDonChiTiet")
                         .HasColumnType("uniqueidentifier");
 
@@ -335,7 +345,7 @@ namespace _1.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdCtDienThoai");
+                    b.HasIndex("IdHoaDonChiTiet");
 
                     b.HasIndex("MaIMEI")
                         .IsUnique()
@@ -703,12 +713,12 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.DomainModels.IMEI", b =>
                 {
-                    b.HasOne("_1.DAL.DomainModels.CtDienThoai", "IdCtDienThoaiNavigation")
+                    b.HasOne("_1.DAL.DomainModels.HoaDonChiTiet", "IdHoaDonChiTietNavigation")
                         .WithMany("IMEIs")
-                        .HasForeignKey("IdCtDienThoai")
-                        .HasConstraintName("FK_IMEI_CtDienThoai");
+                        .HasForeignKey("IdHoaDonChiTiet")
+                        .HasConstraintName("FK_IMEI_HoaDonChiTiet");
 
-                    b.Navigation("IdCtDienThoaiNavigation");
+                    b.Navigation("IdHoaDonChiTietNavigation");
                 });
 
             modelBuilder.Entity("_1.DAL.DomainModels.NhanVien", b =>
@@ -739,8 +749,6 @@ namespace _1.DAL.Migrations
             modelBuilder.Entity("_1.DAL.DomainModels.CtDienThoai", b =>
                 {
                     b.Navigation("HoaDonChiTiets");
-
-                    b.Navigation("IMEIs");
                 });
 
             modelBuilder.Entity("_1.DAL.DomainModels.DienThoai", b =>
@@ -751,6 +759,11 @@ namespace _1.DAL.Migrations
             modelBuilder.Entity("_1.DAL.DomainModels.HoaDon", b =>
                 {
                     b.Navigation("HoaDonChiTiets");
+                });
+
+            modelBuilder.Entity("_1.DAL.DomainModels.HoaDonChiTiet", b =>
+                {
+                    b.Navigation("IMEIs");
                 });
 
             modelBuilder.Entity("_1.DAL.DomainModels.KhachHang", b =>

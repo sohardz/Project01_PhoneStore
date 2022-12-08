@@ -5,48 +5,17 @@ namespace _3.PL.Utilities
 {
     public class Utility
     {
-        public static object locker = new();
-
-        // tạo chuỗi 15 số bằng timenow D:
-        public static string Generate15UniqueDigits()
+        public static string ZenMaTuDong(string fullName)
         {
-            lock (locker)
+            string temp = fullName.Trim().ToLower();
+            string[] arrValues = temp.Split(' ');
+            string final = GetVietHoaChuCaiDau(arrValues[^1]).Trim();
+            for (int i = 0; i < arrValues.Length - 1; i++)
             {
-                Thread.Sleep(100);
-                return DateTime.Now.ToString("yyyyMMddHHmmssf");
+                final += GetChuCaiDau(arrValues[i]);
             }
+            return LoaiBoDauTiengViet(final);
         }
-
-        //lấy đường dẫn ảnh
-        public static void LoadImage(ref string imagePath)
-        {
-            OpenFileDialog fileImgName = new OpenFileDialog();
-            if (fileImgName.ShowDialog() == DialogResult.OK)
-            {
-                imagePath = fileImgName.FileName;
-            }
-        }
-
-        public static List<string> GetThanhPho()
-        {
-            return new List<string>() { "Hà Nội", "Hải Phòng", "Hải Dương", "Hồ Chí Minh", "Đà Nẵng", "Vũng Tàu", "Quảng Ninh" };
-        }
-
-        public static List<string> TrangThai()
-        {
-            return new List<string>() { "Không hoạt động", "Hoạt động" };
-        }
-
-        public static List<string> TrangThaiHoaDon()
-        {
-            return new List<string>() { "Chưa thanh toán", "Đã thanh toán", "Hủy" };
-        }
-
-        public static List<string> TrangThaiIMEI()
-        {
-            return new List<string>() { "Chưa bán", "Đang giữ", "Đã bán" };
-        }
-
         public static string GetNumber(int length)
         {
             Random random = new Random();
@@ -58,18 +27,6 @@ namespace _3.PL.Utilities
                 ketqua += allchar[(random.Next(length))];
             }
             return ketqua;
-        }
-
-        public static string ZenMaTuDong(string fullName)
-        {
-            string temp = fullName.Trim().ToLower();
-            string[] arrValues = temp.Split(' ');
-            string final = GetVietHoaChuCaiDau(arrValues[^1]).Trim();
-            for (int i = 0; i < arrValues.Length - 1; i++)
-            {
-                final += GetChuCaiDau(arrValues[i]);
-            }
-            return LoaiBoDauTiengViet(final);
         }
 
         public static string VietHoaFullName(string fullName)
@@ -115,6 +72,20 @@ namespace _3.PL.Utilities
             return (sb.ToString().Normalize(NormalizationForm.FormD));
         }
 
+        public static List<string> GetThanhPho()
+        {
+            return new List<string>() { "Hà Nội", "Hải Phòng", "Hải Dương", "Hồ Chí Minh", "Đà Nẵng", "Vũng Tàu", "Quảng Ninh" };
+        }
+
+        public static List<string> TrangThai()
+        {
+            return new List<string>() { "Không hoạt động", "Hoạt động" };
+        }
+
+        public static List<string> TrangThaiHoaDon()
+        {
+            return new List<string>() { "Chưa thanh toán", "Đã thanh toán", "Hủy", "Đang giao", "Đã giao", "Đã cọc", "Hoàn thành" };
+        }
 
         //Đọc file XML
         public static List<T> DocFile<T>(string path)
@@ -152,5 +123,14 @@ namespace _3.PL.Utilities
             }
         }
 
+        //lấy đường dẫn ảnh
+        public static void LoadImage(ref string imagePath)
+        {
+            OpenFileDialog fileImgName = new OpenFileDialog();
+            if (fileImgName.ShowDialog() == DialogResult.OK)
+            {
+                imagePath = fileImgName.FileName;
+            }
+        }
     }
 }

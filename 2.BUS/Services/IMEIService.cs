@@ -10,19 +10,15 @@ namespace _2.BUS.Services
     {
         private IIMEIRepository imeiRepository;
         private IHoaDonChiTietRepository hoaDonChiTietRepository;
-        private ICtDienThoaiRepository ctDienThoaiRepository;
 
         private IHoaDonChiTietService hoaDonChiTietService;
-        private ICtDienThoaiService ctDienThoaiService;
 
         public IMEIService()
         {
             imeiRepository = new IMEIRepository();
             hoaDonChiTietRepository = new HoaDonChiTietRepository();
-            ctDienThoaiRepository = new CtDienThoaiRepository();
 
             hoaDonChiTietService = new HoaDonChiTietService();
-            ctDienThoaiService = new CtDienThoaiService();
         }
 
         public string Add(IMEIView obj)
@@ -32,8 +28,7 @@ namespace _2.BUS.Services
                 var imei = new IMEI()
                 {
                     Id = Guid.Empty,
-                    IdCtDienThoai = ctDienThoaiService.GetId(obj.MaCtDienThoai),
-                    IdHoaDonChiTiet = Guid.Empty,
+                    IdHoaDonChiTiet = hoaDonChiTietService.GetId(obj.MaHoaDonChiTiet),
                     MaIMEI = obj.MaIMEI,
                     TrangThai = obj.TrangThai,
                 };
@@ -46,24 +41,9 @@ namespace _2.BUS.Services
         {
             if (obj != null)
             {
-                var lst = imeiRepository.GetAll().Where(c => c.IdCtDienThoai == ctDienThoaiService.GetId(obj.MaCtDienThoai) && c.IdHoaDonChiTiet == hoaDonChiTietService.GetId(obj.MaHoaDonChiTiet));
-                if (lst.Any())
-                {
-                    foreach (var x in lst)
-                    {
-                        x.IdHoaDonChiTiet = Guid.Empty;
-                        x.TrangThai = obj.TrangThai;
-                        imeiRepository.Update(x);
-                    }
-                    return "Sửa thành công";
-                }
-                else
-                {
-                    var imei = imeiRepository.GetAll().FirstOrDefault(c => c.IdCtDienThoai == ctDienThoaiService.GetId(obj.MaCtDienThoai));
-                    imei.IdHoaDonChiTiet = hoaDonChiTietService.GetId(obj.MaHoaDonChiTiet);
-                    imei.TrangThai = obj.TrangThai;
-                    return imeiRepository.Update(imei) ? "sửa thành công" : "sửa thất bại";
-                }
+                var imei = GetModel(GetId(obj.MaIMEI));
+                imei.TrangThai = obj.TrangThai;
+                return imeiRepository.Update(imei) ? "sửa thành công" : "sửa thất bại";
             }
             return "sửa thất bại";
         }
@@ -84,10 +64,10 @@ namespace _2.BUS.Services
             lst =
                 (
                     from a in imeiRepository.GetAll()
-                    join b in ctDienThoaiRepository.GetAll() on a.IdCtDienThoai equals b.Id
+                    join b in hoaDonChiTietRepository.GetAll() on a.IdHoaDonChiTiet equals b.Id
                     select new IMEIView()
                     {
-                        MaCtDienThoai = b.Ma,
+                        MaHoaDonChiTiet = b.Ma,
                         MaIMEI = a.MaIMEI,
                         TrangThai = a.TrangThai,
                     }

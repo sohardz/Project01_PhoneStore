@@ -16,8 +16,6 @@ namespace _3.PL.Views.CtDienthoai
         private IMauSacService mauSacService;
         private IPinService pinService;
         private IRamService ramService;
-        private IIMEIService iMEIService;
-
         private string maWhenclick;
         private string ImagePath;
         private string img = @"C:\Users\adm\Desktop\DuAn1\3.PL\Image\AnhSanPham\1.jpg";
@@ -33,7 +31,6 @@ namespace _3.PL.Views.CtDienthoai
             mauSacService = new MauSacService();
             pinService = new PinService();
             ramService = new RamService();
-            iMEIService = new IMEIService();
             LoadCmb();
             LoadDgrid();
             txt_ma.Enabled = false;
@@ -270,18 +267,7 @@ namespace _3.PL.Views.CtDienthoai
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn thêm sản phẩm này?", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                
                 MessageBox.Show(ctDienthoaiService.Add(x));
-                for (int i = 0; i < x.SoLuongTon; i++)
-                {
-                    IMEIView imei = new()
-                    {
-                        MaCtDienThoai = x.Ma,
-                        MaIMEI = Utility.Generate15UniqueDigits(),
-                        TrangThai = 0,
-                    };
-                    iMEIService.Add(imei);
-                }
                 LoadDgrid();
             }
         }

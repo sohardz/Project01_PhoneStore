@@ -310,10 +310,10 @@
             this.dgrid_chitietsp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.dgrid_chitietsp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_chitietsp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_chitietsp.Location = new System.Drawing.Point(0, 392);
+            this.dgrid_chitietsp.Location = new System.Drawing.Point(0, 442);
             this.dgrid_chitietsp.Name = "dgrid_chitietsp";
             this.dgrid_chitietsp.RowTemplate.Height = 25;
-            this.dgrid_chitietsp.Size = new System.Drawing.Size(1350, 438);
+            this.dgrid_chitietsp.Size = new System.Drawing.Size(1350, 388);
             this.dgrid_chitietsp.TabIndex = 123;
             this.dgrid_chitietsp.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_chitietsp_CellClick);
             // 

@@ -19,7 +19,7 @@ namespace _3.PL.Views.DangNhap
         INhanVienService nhanVienService;
         string body;
         string email;
-
+        
         string from = "hieulmph27350@fpt.edu.vn";
         public FrmQuenMatKhau()
         {
@@ -27,18 +27,9 @@ namespace _3.PL.Views.DangNhap
             nhanVienService = new NhanVienService();
         }
 
-        public bool CheckMail()
-        {
-            if (string.IsNullOrEmpty(txtEmail.Text))
-            {
-                MessageBox.Show("Email không được bỏ trống", "Thông báo");
-                return false;
-            }
-            return true;
-        }
         public void SendMail(string ballsack)
         {
-
+ 
             MailMessage message = new MailMessage(from, email, "", body);
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
             client.EnableSsl = true;
@@ -51,32 +42,27 @@ namespace _3.PL.Views.DangNhap
 
         private void btn_confirm_Click(object sender, EventArgs e)
         {
+            var nhanVien = nhanVienService.GetAll().FirstOrDefault(c => c.Email == txtEmail.Text).Email;
+            var matkhau = nhanVienService.GetAll().FirstOrDefault(c => c.Email == txtEmail.Text).MatKhau;
+
             DialogResult dialogResult = MessageBox.Show("Confirm", "Xác nhận", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                foreach (var item in nhanVienService.GetAll())
+                if (nhanVien == txtEmail.Text)
                 {
-                    if (item.Email == txtEmail.Text)
-                    {
-                        var matkhau = nhanVienService.GetAll().FirstOrDefault(c => c.Email == txtEmail.Text).MatKhau;
-                        email = txtEmail.Text;
-                        body = "Mật khẩu của bạn là " + matkhau;
-                        SendMail(txtEmail.Text);
-                        MessageBox.Show("Gửi mail thành công", "Thông ball");
-                    }
-                    
+                    email = txtEmail.Text;
+                    body = "Mật khẩu của bạn là " + matkhau;
+                    SendMail(txtEmail.Text);
+                    MessageBox.Show("Gửi mail thành công ", "Thông ball");
                 }
-
             }
-
-
         }
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-            FrmDangNhap frmDangNhap = new();
+            FrmDangNhap frmDangNhap = new ();
             frmDangNhap.Show();
-            Close();
+            Close();  
         }
 
 

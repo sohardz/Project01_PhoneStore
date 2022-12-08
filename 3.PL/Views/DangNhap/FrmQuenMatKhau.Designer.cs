@@ -54,12 +54,10 @@
             // guna2DragControl1
             // 
             this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.guna2Panel1;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // guna2ShadowForm1
             // 
-            this.guna2ShadowForm1.BorderRadius = 6;
             this.guna2ShadowForm1.ShadowColor = System.Drawing.Color.Gainsboro;
             this.guna2ShadowForm1.TargetForm = this;
             // 
